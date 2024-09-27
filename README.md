@@ -77,16 +77,16 @@
 
 <h2 id="installation"><svg class="icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8z"/></svg> Installation</h2>
 <p>You can install the CleanData package using npm. Run the following command in your terminal:</p>
-<pre><code>npm install clean-data</code></pre>
+<pre><code>npm install deep-cleaner-js</code></pre>
 
 <h2 id="usage"><svg class="icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8z"/></svg> Usage</h2>
 <p>To use the CleanData package, you can import it in your JavaScript file using either <code>require()</code> or the ES6 <code>import</code> statement.</p>
 
 <h3>Using require()</h3>
-<pre><code>const cleanData = require('clean-data');</code></pre>
+<pre><code>const cleanData = require('deep-cleaner-js');</code></pre>
 
 <h3>Using import</h3>
-<pre><code>import cleanData from 'clean-data';</code></pre>
+<pre><code>import cleanData from 'deep-cleaner-js';</code></pre>
 
 <h3>Basic Example</h3>
 <pre><code>const jsonData = `{
