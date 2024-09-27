@@ -1,0 +1,29 @@
+{
+  "name": "deep-cleaner",
+  "version": "1.0.0",
+  "description": "deep cleaner data in javascript",
+  "main": "index.js",
+  "scripts": {
+    "test": "jest"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/MohammadRostami71/deep-cleaner-js.git"
+  },
+  "keywords": [
+    "deep-clean",
+    "js",
+    "object-clean",
+    "array-clean",
+    "cleaner"
+  ],
+  "author": "Mohammad Rostami",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/MohammadRostami71/deep-cleaner-js/issues"
+  },
+  "homepage": "https://github.com/MohammadRostami71/deep-cleaner-js#readme",
+  "devDependencies": {
+    "jest": "^29.7.0"
+  }
+}
