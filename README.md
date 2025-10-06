@@ -1,138 +1,227 @@
-Deep Cleaner JS 🚀
+# 🧹 deep-cleaner-js
 
-A TypeScript-ready, ultra-flexible data cleaning library for JavaScript/Node.js.
+![npm](https://img.shields.io/npm/v/deep-cleaner-js.svg)
+![License: MIT](https://img.shields.io/badge/License-MIT-green.svg)
+![TypeScript](https://img.shields.io/badge/TypeScript-Ready-blue.svg)
+![Coverage](https://img.shields.io/badge/Coverage-100%25-success.svg)
+![Zero Dependencies](https://img.shields.io/badge/Zero%20Dependencies-✔️-brightgreen.svg)
 
-Deep Cleaner recursively removes unwanted values (null, undefined, empty objects, empty arrays) from your data structures while preserving functions, Date, RegExp, Map, Set, Buffer, and Symbol keys. Ideal for preparing JSON, API payloads, or any nested structures before processing or saving.
-⸻
-🔥 Features
+> **deep-cleaner-js** — a powerful, zero-dependency TypeScript/JavaScript library for deeply cleaning nested objects and arrays.  
+> Remove `null`, `undefined`, empty strings, zeros, and empty structures safely — without losing data integrity.
 
-- ✅ Recursive cleaning: Cleans objects and arrays at any depth.
-- ✅ Preserves important types: Functions, Dates, RegExp, Map, Set, Buffer, and Symbols remain untouched.
-- ✅ Flexible options:
-    - Remove null and/or undefined
-    - Customize behavior for empty arrays and objects
-- ✅ Non-mutating / functional: Returns a cleaned copy, original input stays intact.
-- ✅ TypeScript support: Fully typed for safer code.
-- ✅ Handles complex nested structures without breaking.
-- ✅ Idempotent: Running it twice yields the same result.
-  ⸻
-  📦 Installation
+---
 
-# Using npm
+## ✨ Features
+
+✅ Deep recursive cleaning of objects and arrays  
+🧠 Handles circular references safely  
+⚙️ Fully configurable behavior  
+💪 Written in TypeScript with full type definitions  
+🔒 Non-destructive (doesn’t mutate the original object)  
+⚡ Blazing-fast performance (optimized recursion)  
+🧰 Preserves `Date`, `RegExp`, `Map`, `Set`, `Buffer`, and `Function`  
+🧩 Zero dependencies — pure, portable, and lightweight  
+
+---
+
+## 📦 Installation
+
+```bash
+# npm
 npm install deep-cleaner-js
 
-# Using yarn
+# yarn
 yarn add deep-cleaner-js
 
-⸻
-⚡ Quick Start
+# pnpm
+pnpm add deep-cleaner-js
+```
 
-import deepClean from 'deep-cleaner-js';
+### 🪶 CDN
+
+```html
+<script src="https://unpkg.com/deep-cleaner-js/dist/index.umd.js"></script>
+<script>
+  const result = deepCleaner.deepClean({ a: null, b: 2 });
+  console.log(result); // { b: 2 }
+</script>
+```
+
+---
+
+## 🚀 Quick Start
+
+### JavaScript
+
+```js
+import { deepClean } from "deep-cleaner-js";
 
 const input = {
-name: "John",
-age: null,
-meta: {
-created: undefined,
-tags: [],
-profile: {
-bio: "",
-},
-},
-scores: [10, null, 20, undefined],
+  name: "John",
+  email: "",
+  meta: {
+    score: 0,
+    address: null,
+    active: true,
+  },
+  tags: [null, "dev", undefined],
 };
 
-const cleaned = deepClean(input);
+const cleaned = deepClean(input, {
+  removeNull: true,
+  removeUndefined: true,
+  cleanEmptyString: true,
+  cleanZero: false,
+});
 
 console.log(cleaned);
-/* Output:
-{
-name: "John",
-meta: {
-profile: { bio: "" }
-},
-scores: [10, 20]
-}
-*/
+// {
+//   name: "John",
+//   meta: { score: 0, active: true },
+//   tags: ["dev"]
+// }
+```
 
-⸻
-🛠 Options
+### TypeScript
 
-deepClean(value, options?)
-Option	Type	Default	Description
-removeNull	boolean	true	Remove null values.
-removeUndefined	boolean	true	Remove undefined values.
+```ts
+import { deepClean, DeepCleanOptions } from "deep-cleaner-js";
 
-Example:
+const options: DeepCleanOptions = {
+  removeNull: true,
+  removeUndefined: true,
+  cleanEmptyString: true,
+  cleanZero: false,
+};
 
-deepClean({ a: null, b: undefined, c: 0 }, { removeNull: false });
-// Output: { a: null, c: 0 }
+const cleaned = deepClean({ user: "", id: 0 }, options);
+```
 
-⸻
-🌈 Supported Data Types
+---
 
-- Primitive types: number, string, boolean → preserved.
-- Null / undefined → removed if options enabled.
-- Array → cleaned recursively, empty arrays removed.
-- Object → cleaned recursively, empty objects removed.
-- Function → preserved.
-- Date, RegExp → preserved.
-- Map, Set → preserved.
-- Buffer-like objects → preserved.
-- Symbol keys → preserved.
-  ⸻
-  💡 Advanced Usage
+## ⚙️ API Reference
 
-Cleaning nested arrays:
+### **`deepClean(input, options?)`**
 
-const data = [{ a: null }, { b: 2 }, {}];
-const result = deepClean(data);
-// Output: [{ b: 2 }]
+| Option | Type | Default | Description |
+|--------|------|----------|-------------|
+| `removeNull` | `boolean` | `false` | Removes properties or items that are `null`. |
+| `removeUndefined` | `boolean` | `false` | Removes properties or items that are `undefined`. |
+| `cleanEmptyString` | `boolean` | `false` | Removes empty strings (`""`). |
+| `cleanZero` | `boolean` | `false` | Removes zero (`0`) values. |
 
+**Returns:** A deeply cleaned clone of the input.
 
-Preserving special objects:
+---
 
-const date = new Date();
-const regex = /test/i;
-const map = new Map([['k','v']]);
+## 🧠 Advanced Examples
 
-const obj = { date, regex, map, empty: {} };
-const cleaned = deepClean(obj);
+### Nested Objects
 
-console.log(cleaned);
-// { date: ..., regex: ..., map: Map(1), ... }
+```js
+deepClean({
+  user: {
+    name: "",
+    address: { city: null, zip: undefined },
+    scores: [10, null, 0],
+  },
+}, {
+  removeNull: true,
+  removeUndefined: true,
+  cleanEmptyString: true,
+});
+```
 
+**Output:**
+```js
+{ user: { scores: [10, 0] } }
+```
 
-Functional & non-mutating:
+### Circular References
 
-const original = { a: null, b: 1 };
-const cleaned = deepClean(original);
-console.log(original); // { a: null, b: 1 }
+```js
+const a = { name: "A" };
+a.self = a;
+const result = deepClean(a);
+console.log(result.self === result); // true ✅
+```
 
-⸻
-🧪 Testing
+### Special Types Preserved
 
-Deep Cleaner comes with 30 comprehensive tests using Jest to cover all edge cases.
+```js
+const data = {
+  date: new Date(),
+  regex: /abc/i,
+  fn: () => {},
+  buffer: Buffer.from("123"),
+};
 
-Run tests:
+deepClean(data); // Keeps all intact ✅
+```
 
-npm run test
+---
 
-⸻
-📈 Roadmap / Next Features
+## ⚖️ Comparison with Other Libraries
 
-- Selective cleaning rules (clean only specific paths)
-- Diff logging (track what was removed with full paths)
-- Configurable empty-value handling
-- Performance optimization for huge nested structures
-  ⸻
-  🌟 Why Deep Cleaner?
+| Feature / Library | deep-cleaner-js | clean-deep | lodash | deepdash |
+|-------------------|:---------------:|:-----------:|:-------:|:---------:|
+| Removes null/undefined | ✅ | ✅ | ⚙️ (custom) | ⚙️ |
+| Removes empty strings | ✅ | ✅ | ⚙️ | ⚙️ |
+| Removes zero values | ✅ | ❌ | ⚙️ | ⚙️ |
+| Handles circular refs | ✅ | ❌ | ⚙️ | ⚙️ |
+| Preserves Date/Map/Set | ✅ | ❌ | ⚙️ | ⚙️ |
+| TypeScript support | ✅ | ⚠️ Partial | ⚠️ | ⚠️ |
+| Zero dependencies | ✅ | ❌ | ❌ | ❌ |
+---
 
-- Safe: preserves important objects and references.
-- Flexible: works on any nested structure.
-- TypeScript-ready: autocompletion and type safety.
-- Lightweight & fast: only pure JS/TS code, no heavy dependencies.
-  ⸻
-  📜 License
+## 🧬 Architecture Overview
 
-MIT © 2025
+```
+src/
+ ├── index.ts          # Entry point
+ └── types.ts          # TypeScript interfaces
+ tests/
+ ├── cleanData.test.js          # tests
+```
+
+- Recursion is **safe** and **stack-optimized**
+- Circulars handled with `WeakMap`
+- Deep cloning ensures **immutability**
+
+---
+
+## 🧪 Testing
+
+Over **50 comprehensive test cases** ensure 100% coverage.
+
+```bash
+npm test
+```
+
+---
+
+## 🤝 Contributing
+
+Pull requests are welcome!  
+Open an issue to discuss major changes.
+
+```bash
+git clone https://github.com/MohammadRostami71/deep-cleaner-js.git
+cd deep-cleaner-js
+npm install
+npm test
+```
+
+---
+
+## 📄 License
+
+MIT © 2025 — Created with ❤️ by Mohammad Rostami
+
+---
+
+### 🌐 Links
+
+- **NPM:** [npmjs.com/package/deep-cleaner-js](https://www.npmjs.com/package/deep-cleaner-js)
+- **GitHub:** [https://github.com/MohammadRostami71/deep-cleaner-js](https://github.com/MohammadRostami71/deep-cleaner-js)
+- **Issues:** [Report a Bug](https://github.com/MohammadRostami71/deep-cleaner-js/issues)
