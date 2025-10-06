@@ -1,29 +1,58 @@
 {
   "name": "deep-cleaner-js",
-  "version": "1.0.1",
-  "description": "deep cleaner data in javascript",
-  "main": "index.js",
+  "version": "2.0.0",
+  "description": "A powerful TypeScript/JavaScript library for deeply cleaning objects and arrays by removing null, undefined, empty strings, zeros, and empty structures",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
   "scripts": {
-    "test": "jest"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/MohammadRostami71/deep-cleaner-js.git"
+    "build": "tsc",
+    "dev": "ts-node src/index.ts",
+    "test": "jest",
+    "test:watch": "jest --watch",
+    "test:coverage": "jest --coverage",
+    "prepublishOnly": "npm run build && npm test"
   },
   "keywords": [
     "deep-clean",
+    "object-cleaner",
+    "data-cleaning",
+    "typescript",
+    "javascript",
+    "utility",
+    "object",
+    "array",
+    "clean",
+    "remove-null",
+    "remove-undefined",
+    "empty-objects",
+    "empty-arrays",
+    "deep-clean",
     "js",
+    "ts",
     "object-clean",
     "array-clean",
     "cleaner"
   ],
-  "author": "Mohammad Rostami",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/MohammadRostami71/deep-cleaner-js.git"
+  },
+  "author": {
+    "name": "Mohammad Rostami",
+    "email": "mohammad.rostami13@gmail.com",
+    "url": "https://www.linkedin.com/in/mohammadrostami/"
+  },
   "license": "ISC",
   "bugs": {
     "url": "https://github.com/MohammadRostami71/deep-cleaner-js/issues"
   },
   "homepage": "https://github.com/MohammadRostami71/deep-cleaner-js#readme",
   "devDependencies": {
-    "jest": "^29.7.0"
+    "@types/jest": "^30.0.0",
+    "@types/node": "^24.7.0",
+    "jest": "^29.7.0",
+    "ts-jest": "^29.4.4",
+    "tsup": "^8.5.0",
+    "typescript": "^5.9.3"
   }
 }
