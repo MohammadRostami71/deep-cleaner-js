@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<coverage generated="1759785209451" clover="3.2.0">
+  <project timestamp="1759785209451" name="All files">
+    <metrics statements="40" coveredstatements="40" conditionals="71" coveredconditionals="63" methods="3" coveredmethods="3" elements="114" coveredelements="106" complexity="0" loc="40" ncloc="40" packages="1" files="1" classes="1"/>
+    <file name="index.ts" path="/Users/mohammadrostami/Projects/deep-cleaner-js/src/index.ts">
+      <metrics statements="40" coveredstatements="40" conditionals="71" coveredconditionals="63" methods="3" coveredmethods="3"/>
+      <line num="5" count="1469" type="stmt"/>
+      <line num="10" count="3461" type="stmt"/>
+      <line num="22" count="1" type="cond" truecount="2" falsecount="0"/>
+      <line num="28" count="3461" type="stmt"/>
+      <line num="31" count="3461" type="cond" truecount="1" falsecount="0"/>
+      <line num="32" count="3264" type="cond" truecount="3" falsecount="0"/>
+      <line num="33" count="3211" type="cond" truecount="3" falsecount="0"/>
+      <line num="34" count="3195" type="cond" truecount="3" falsecount="0"/>
+      <line num="35" count="2159" type="cond" truecount="3" falsecount="0"/>
+      <line num="36" count="1124" type="stmt"/>
+      <line num="40" count="197" type="cond" truecount="1" falsecount="0"/>
+      <line num="41" count="3" type="stmt"/>
+      <line num="45" count="194" type="cond" truecount="1" falsecount="0"/>
+      <line num="46" count="53" type="stmt"/>
+      <line num="47" count="53" type="stmt"/>
+      <line num="49" count="53" type="stmt"/>
+      <line num="50" count="1129" type="stmt"/>
+      <line num="52" count="1129" type="cond" truecount="2" falsecount="1"/>
+      <line num="53" count="1129" type="cond" truecount="3" falsecount="0"/>
+      <line num="54" count="424" type="cond" truecount="2" falsecount="1"/>
+      <line num="55" count="424" type="cond" truecount="2" falsecount="1"/>
+      <line num="56" count="424" type="cond" truecount="3" falsecount="0"/>
+      <line num="57" count="412" type="cond" truecount="3" falsecount="0"/>
+      <line num="59" count="398" type="stmt"/>
+      <line num="62" count="53" type="stmt"/>
+      <line num="66" count="141" type="stmt"/>
+      <line num="67" count="141" type="stmt"/>
+      <line num="69" count="141" type="stmt"/>
+      <line num="74" count="141" type="stmt"/>
+      <line num="75" count="2269" type="stmt"/>
+      <line num="76" count="2269" type="stmt"/>
+      <line num="78" count="2269" type="cond" truecount="2" falsecount="1"/>
+      <line num="79" count="2269" type="cond" truecount="3" falsecount="0"/>
+      <line num="80" count="848" type="cond" truecount="2" falsecount="1"/>
+      <line num="81" count="848" type="cond" truecount="2" falsecount="1"/>
+      <line num="82" count="848" type="cond" truecount="3" falsecount="0"/>
+      <line num="83" count="843" type="cond" truecount="3" falsecount="0"/>
+      <line num="85" count="818" type="stmt"/>
+      <line num="88" count="141" type="stmt"/>
+      <line num="91" count="1" type="stmt"/>
+    </file>
+  </project>
+</coverage>
